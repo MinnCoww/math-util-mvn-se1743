@@ -25,7 +25,24 @@ public class MathUtility {
     //                                                  18 con số 0
     // 21!: CHỬI, NÉM RA NGOẠI LỆ 
 
-    public static long getFactorial(int n) {
+//    public static long getFactorial(int n) {
+//
+//        if (n < 0 || n > 20) 
+//            throw new IllegalArgumentException("invalid n. n must be between 0...20");
+//        
+//
+//        if (n == 0 || n == 1) 
+//            return 1;
+//        
+//
+//        long product = 1; // tích khởi đầu là 1, sau đó nhân dồn vào
+//        for (int i = 2; i <= n; i++) 
+//            product *= i;
+//        
+//        return product;
+//    }
+//}
+public static long getFactorial(int n) {
 
         if (n < 0 || n > 20) 
             throw new IllegalArgumentException("invalid n. n must be between 0...20");
@@ -34,11 +51,13 @@ public class MathUtility {
         if (n == 0 || n == 1) 
             return 1;
         
-
-        long product = 1; // tích khởi đầu là 1, sau đó nhân dồn vào
-        for (int i = 2; i <= n; i++) 
-            product *= i;
-        
-        return product;
+        return n * getFactorial(n - 1);  
     }
 }
+
+//5! = 1.2.3.4.5 = 5 x 4!
+//4! = 4 x 3!
+//3! = 3 x 2!
+//2! = 2 x 1!
+//1! = 1 dừng
+//n! = n x (n -1)!
